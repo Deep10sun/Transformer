@@ -9,5 +9,6 @@ with open("input.txt", "r", encoding="utf-8") as f:
 tokenizer = Tokenizer(BPE(unk_token="[UNK]"))
 trainer = BpeTrainer(special_tokens=["[UNK]", "[CLS]", "[SEP]", "[PAD]", "[MASK]"])
 tokenizer.pre_tokenizer = Whitespace()
+
 tokenizer.train(['./input.txt'],trainer)
 tokenizer.save("data/tokenizer.json")
